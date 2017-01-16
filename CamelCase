@@ -1,0 +1,49 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    int min;
+    for(int i = 0;i < n;i++){
+       
+       cin >> a[i];
+        if(i==0)
+            min=a[i];
+        else if(a[i]<min)
+            min=a[i];
+    }
+    int temp=min;
+    while(1){
+        int j=0;
+        int count=0;
+        min=temp;
+        temp=1005;
+        
+        int flag=0;
+        while(j<n){
+            if(a[j]==0){
+                j++;
+                flag++;
+                continue;
+            }   
+            a[j]=a[j]-min;
+            count++;
+            if(a[j]<temp && a[j]!=0)
+                temp=a[j];
+            j++;
+        }
+            
+            if(flag==n)  
+                break;
+            cout<<count<<endl;
+        
+    }
+    
+    return 0;
+}
