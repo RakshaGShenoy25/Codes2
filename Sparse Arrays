@@ -1,0 +1,29 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n;
+    cin>>n;
+    string a[n];
+    int q;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    cin>>q;
+    for(int i=0;i<q;i++){
+        string s;
+        cin>>s;
+        int count=0;
+        for(int j=0;j<n;j++){
+            if(s.compare(a[j])==0)
+                count++;
+        }
+        cout<<count<<endl;
+    }
+    return 0;
+}
