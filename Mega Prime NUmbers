@@ -1,0 +1,37 @@
+#!/bin/python3
+
+import sys
+
+def isPrime(n):
+    n = abs(int(n))
+    if n < 2:
+        return False
+    if n == 2: 
+        return True    
+    if not n & 1: 
+        return False
+    for x in range(3, int(n**0.5)+1, 2):
+        if n % x == 0:
+            return False
+    return True
+first,last = input().strip().split(' ')
+first,last = [int(first),int(last)]
+count=0
+i=0
+for i in range(first,last):
+    if(isPrime(i)):
+        if(i==1):
+            continue
+        k=str(i)
+        flag=0
+        for m in range(0,len(k)):
+            num=int(k[m])
+            if(num==1):
+                break
+            if(isPrime(num)):
+                flag=flag+1;
+        if(flag==len(k)):
+            count=count+1;
+print (count) 
+
+        
